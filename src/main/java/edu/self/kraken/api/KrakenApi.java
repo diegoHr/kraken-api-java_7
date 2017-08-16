@@ -73,8 +73,12 @@ public class KrakenApi {
         request.setKey(key);
 
         // clone parameter map
-        parameters = parameters == null ? new HashMap<>() : new HashMap<>(parameters);
-
+	if (parameters==null){
+		parameters=new HashMap<>();
+	}else{
+		parameters=new HashMap<>(parameters);
+	}
+       
         // set OTP parameter
         if (otp != null) {
             parameters.put(OTP, otp);
